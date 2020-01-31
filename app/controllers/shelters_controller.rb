@@ -2,31 +2,21 @@ class SheltersController < ApplicationController
 
 
   def index
+    if
+      name = params[:name]
+      @shelters = Shelter.name_search(name)
+      json_response(@shelters)
+    elsif
+      location = params[:locations]
+      @shelters = Shelter.location_search(location)
+    else
     @shelters = Shelter.all
-    name = params[:name]
-    @shelters = Shelter.name_search(name)
     json_response(@shelters)
   end
+end
+  # @shelter = Shelter.find(params[:id])
+  # json_response(@shelter)
 
-  #   def index
-  #       @shelters = Shelter.all
-  #       json_response(@shelters)
-  #   if
-  #     name = params[:name]
-  #     @shelters = Shelter.name_search(name)
-  #     binding.pry
-  #       json_response(@shelters)
-  #   else
-  #     location = params[:location]
-  #     @shelters = Shelter.location_search(location)
-  #     json_response(@shelters)
-  #   end
-  # end
-
-  def show
-    @shelter = Shelter.find(params[:id])
-    json_response(@shelter)
-  end
 
   def create
     @shelter = Shelter.create!(shelter_params)
