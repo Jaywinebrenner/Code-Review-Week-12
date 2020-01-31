@@ -1,4 +1,4 @@
-class AnimalsController < ApplicationController
+class SheltersController < ApplicationController
 
   def index
     @shelters = {"quotation": "The secret of getting ahead is getting started."}
