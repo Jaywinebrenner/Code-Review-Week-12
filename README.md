@@ -4,7 +4,7 @@
 
 ### Description
 
-A Ruby-Rails based API that allows users to make calls to find Animal shelters in their area, the shelters location as well as the kind of animals at each shelter.
+A Ruby-Rails based API that allows users to make calls to Create, Read, Update and Delete Animal shelters and their corresponding Animals housed within.
 
 ### Setup/Installation Requirements
 

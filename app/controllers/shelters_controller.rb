@@ -10,13 +10,10 @@ class SheltersController < ApplicationController
       location = params[:locations]
       @shelters = Shelter.location_search(location)
     else
-    @shelters = Shelter.all
-    json_response(@shelters)
+      @shelters = Shelter.all
+      json_response(@shelters)
+    end
   end
-end
-  # @shelter = Shelter.find(params[:id])
-  # json_response(@shelter)
-
 
   def create
     @shelter = Shelter.create!(shelter_params)

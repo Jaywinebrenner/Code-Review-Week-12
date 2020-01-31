@@ -20,13 +20,16 @@ class AnimalsController < ApplicationController
   # end
 
   def index
-    @animal = Animal.find(params[:id]).all
+    @shelter = Shelter.find(params[:shelter_id])
+    json_response(@animal)
   end
 
   def show
-    @animal = Animal.find(params[:id])
-    json_response(@animal)
-  end
+  @shelter = shelter.find(params[:shelter_id])
+  @animal= Animal.find(params[:id])
+  json_response(@animal)
+end
+
 
   def create
     @animal = Animal.create(animal_params)
@@ -34,7 +37,7 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @animal = Animal.find(params[:id])
+    @animal = Animal.find(params[:shelter_id])
     # @animal.update(animal_params)
     if @animal.update!(animal_params)
       render status: 200, json: {
@@ -44,7 +47,7 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    @animal = Animal.find(params[:id])
+    @animal = Animal.find(params[:shelter_id])
     if @animal.destroy!
       render status: 200, json: {
         message: "This animal has been destroyed. Murderer."
@@ -56,6 +59,6 @@ class AnimalsController < ApplicationController
 
 
   def animal_params
-    params.permit(:breed,:shelter_id)
+    params.permit(:breed, :shelter_id)
   end
 end
