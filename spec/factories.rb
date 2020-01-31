@@ -1,6 +1,11 @@
 FactoryBot.define do
+
   factory(:shelter) do
-    name {'Gregs Animal Depot'}
-    location {'Gary Indiana'}
+    name { Faker::GreekPhilosophers.name }
+    location { Faker::Address.country }
   end
+  factory(:animal) do
+    breed { Faker::Creature::Animal.name }
+  end
+
 end

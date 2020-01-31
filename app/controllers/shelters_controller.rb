@@ -33,7 +33,7 @@ end
     @shelter = Shelter.find(params[:id])
     if @shelter.update!(shelter_params)
       render status: 200, json: {
-        message: "This shelter has been updated successfully."
+        message: "You updated up the shelter, friend!"
       }
     end
   end
@@ -44,9 +44,6 @@ end
   end
 
   private
-  def json_response(object, status = :ok)
-    render json: object, status: status
-  end
 
   def shelter_params
     params.permit(:name, :location)

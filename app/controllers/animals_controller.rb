@@ -20,7 +20,7 @@ class AnimalsController < ApplicationController
   # end
 
   def index
-    @animal = Animal.find(params[:id])
+    @animal = Animal.find(params[:id]).all
   end
 
    def show
