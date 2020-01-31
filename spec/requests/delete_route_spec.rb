@@ -1,6 +1,6 @@
 # require 'rails_helper'
 #
-# describe "delete a shelter route", :type => :request do
+# describe "delete a shelter route", :breed => :request do
 #   let!(:shelters) { FactoryBot.create_list(:shelter, 20)}
 #
 #   before do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "post a shelter route", :type => :request do
+describe "post a shelter route", :breed => :request do
 
   before do
     post '/shelters', params: { :name => 'test_name', :location => 'test_location' }

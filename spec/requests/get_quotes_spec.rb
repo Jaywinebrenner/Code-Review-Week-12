@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "get all shelters route", :type => :request do
+describe "get all shelters route", :breed => :request do
   let!(:shelters) { FactoryBot.create_list(:shelter, 20)}
 
   before { get '/shelters'}

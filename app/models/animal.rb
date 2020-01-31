@@ -1,3 +1,3 @@
 class Animal < ApplicationRecord
-  belongs_to :shelters
+  belongs_to :shelter
 end

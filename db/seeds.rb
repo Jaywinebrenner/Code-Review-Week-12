@@ -13,8 +13,8 @@ class Seed
         location: Faker::Address.city
       )
       5.times do |i|
-        type = Faker::Creature::Animal.name
-        animal = Animal.create!(shelter_id: shelter.id, type: type)
+        breed = Faker::Creature::Animal.name
+        animal = Animal.create!(shelter_id: shelter.id, breed: breed)
       puts "Shelter #{i}: Name is #{shelter.name} and location is '#{shelter.location}'."
       p "created #{Animal.count} Animals"
     end
