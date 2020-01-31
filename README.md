@@ -1,4 +1,4 @@
-# Reggie's Animal Depot API
+# Lord Buckington's Animal Kingdom API
 
 ## By **Jay Winebrenner**
 
@@ -8,15 +8,19 @@ A Ruby-Rails based API that allows users to make calls to find Animal shelters i
 
 ### Setup/Installation Requirements
 
-![enter image description here](https://i.imgur.com/KW12jKc.jpg "read")
+![enter image description here](https://i.imgur.com/KW12jKcl.jpg)
 
-## Opening the App
+## Opening the API and Running the Server
  1. Click the link shown in the above photo and download the file.
  2. Unzip the file and navigate to the folder via your terminal or command line application.
  3. Type $ // Bundle // to install all the gems used in the project.
  4. Type $ // rake db:create // to create a database, followed by // rake db:migrate // to migrate the database.
- 4. Type $ // rails s  // to start the server, which will be available on your computer at localhost:3000.
+ 4. Type $ // rails s  // to start the server, which will be available on your computer locally at localhost:3000.
  5. For purposes of these instructions, anything inside of // is what is to be typed in the terminal. If the instruction says // hello // for example, you'd type just the word hello in the terminal.
+
+## Making API calls
+1. After completing the above 5 steps to get the API server running, you can make API calls using a free program called [Postman](https://www.getpostman.com/)
+2. Using the routing specified below, you can make calls to Lord Buckington's Animal Kingdom API to get shelters and their corresponding animals as well and add, update and delete shelters or their corresponding animals.
 
 ## Assigning Admin privileges
 1. Go to the web app in your browser found at localhost:3000 after following the above 5 steps.
@@ -27,15 +31,19 @@ A Ruby-Rails based API that allows users to make calls to find Animal shelters i
 6. Type // @user.save // to save your new admin status.
 7. Your account will now have admin privileges - including adding, editing and deleting products and editing, updating, and deleting reviews.
 
-### Specifications:
+### Routing Specifications:
 
 |End Point |Output|
 |---|---|
-| /shelters | Returns all available shelters |
-| /shelters/1 | Returns the shelter with an id of 1 |
-| / shelters/1/animals/2| Returns the animal with an id of 2 at shelter with an id of 1 |
-|---|---|
-|---|---|
+| GET /shelters | Returns all available shelters |
+| GET shelters/:id | Returns the shelter with the corresponding id |
+| POST /shelters | Allows users to post an animal shelter using the parameters of 'name' and 'location'|
+| PUT /shelters/:id | Allows users to update an existing animal shelter using the parameters of 'name' and 'location'|
+| DELETE /shelters/:id | Allows users to delete an existing animal shelter |
+| GET shelters/id/animals/id| Returns the animal with the corresponding shelter id and the corresponding animal id |
+| POST shelters/id/animals | Allows user to post an Animal to shelter with the corresponding id |
+| PUT shelters/id/animals/id | Allows user to update an Animal to shelter with the corresponding id |
+| DELETE shelters/id/animals/id  | Allows user to explore baser instincts by deleting an animal from a corresponding shelter |
 |---|---|
 
 
@@ -43,8 +51,8 @@ A Ruby-Rails based API that allows users to make calls to find Animal shelters i
 
  - Ruby
  - Rails
- - CSS
- - Bootstrap
+ - Postgres
+ - Postman
 
 ### Support and Contact
 
