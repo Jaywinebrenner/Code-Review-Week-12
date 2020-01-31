@@ -3,11 +3,9 @@
 ## By **Jay Winebrenner**
 
 ### Description
-
 A Ruby-Rails based API that allows users to make calls to Create, Read, Update and Delete Animal shelters and their corresponding Animals housed within.
 
 ### Setup/Installation Requirements
-
 ![enter image description here](https://i.imgur.com/KW12jKcl.jpg)
 
 ## Opening the API and Running the Server
@@ -15,24 +13,23 @@ A Ruby-Rails based API that allows users to make calls to Create, Read, Update a
  2. Unzip the file and navigate to the folder via your terminal or command line application.
  3. Type $ // Bundle // to install all the gems used in the project.
  4. Type $ // rake db:create // to create a database, followed by // rake db:migrate // to migrate the database.
- 4. Type $ // rails s  // to start the server, which will be available on your computer locally at localhost:3000.
  5. For purposes of these instructions, anything inside of // is what is to be typed in the terminal. If the instruction says // hello // for example, you'd type just the word hello in the terminal.
 
-## Making API calls
-1. After completing the above 5 steps to get the API server running, you can make API calls using a free program called [Postman](https://www.getpostman.com/)
-2. Using the routing specified below, you can make calls to Lord Buckington's Animal Kingdom API to get shelters and their corresponding animals as well and add, update and delete shelters or their corresponding animals.
+## Getting an authorization token to use the API
+1. Ensure you are still inside the directory of the project via your terminal and type:
+// User.create!(email: 'example@mail.com' , password: '123123123' , password_confirmation: '123123123') //
+This will create a user which will authorize to use the API in the next steps.
+2. Type $ // rails s  // to start the server, which will be available on your computer locally at localhost:3000.
+3. You can make API calls using a free program called [Postman](https://www.getpostman.com/). We hope you are familiar with this program, as this README relies on it's functionality.
+4. Type $ // curl -H "Content-Type: application/json" -X POST -d '{"email":"animal@shelter.com","password":"12345678"}' http://localhost:3000/authenticate // into the terminal. The terminal will return an authorization token which will look like this:
+{"auth_token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE1ODA1OTk5NDZ9.zE899GAz6zCbCrtODoIFrueW9dErRvhLtSc4L9stJS0"}
+5. Copy the long string of numbers and letters into Postman into the Token Field. To find the token field, click the "Authorization" tab. Then the drop down menu "Bearer Token" which will reveal a text field that says token. Paste your Authoriztion token there.
+6. You are now fully Authorized to use Lord Buckington's Animal Kingdom API
 
-## Assigning Admin privileges
-1. Go to the web app in your browser found at localhost:3000 after following the above 5 steps.
-2. Click Sign Up at the top nav bar to make an account. Enter email and password / password confirmation.
-3. Now we will make this account have admin privileges by first typing // rails c // into the terminal to open the rails console.
-4. Type // @user = User.first // to target your newly made account.
-5. Type // @user.admin = true // to turn on your admin status.
-6. Type // @user.save // to save your new admin status.
-7. Your account will now have admin privileges - including adding, editing and deleting products and editing, updating, and deleting reviews.
+## Making API calls
+1. Using the routing specified below, you can make calls to Lord Buckington's Animal Kingdom API to get shelters and their corresponding animals as well and add, update and delete shelters or their corresponding animals.
 
 ### Routing Specifications:
-
 |End Point |Output|
 |---|---|
 | GET /shelters | Returns all available shelters |
@@ -45,7 +42,7 @@ A Ruby-Rails based API that allows users to make calls to Create, Read, Update a
 | PUT shelters/id/animals/id | Allows user to update an Animal to shelter with the corresponding id |
 | DELETE shelters/id/animals/id  | Allows user to explore baser instincts by deleting an animal from a corresponding shelter |
 | GET /shelters?name= | Allows user to search for Shelters by name |
-
+| Get /shelters?location= | Allows user to search for shelters by location |
 
 ### Technologies Used
 
