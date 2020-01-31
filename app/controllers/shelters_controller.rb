@@ -15,6 +15,11 @@ class SheltersController < ApplicationController
     end
   end
 
+  def show
+    @shelter = Shelter.find(params[:id])
+    json_response(@shelter)
+  end
+
   def create
     @shelter = Shelter.create!(shelter_params)
     json_response(@shelter)

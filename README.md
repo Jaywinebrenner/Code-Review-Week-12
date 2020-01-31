@@ -44,7 +44,7 @@ A Ruby-Rails based API that allows users to make calls to Create, Read, Update a
 | POST shelters/id/animals | Allows user to post an Animal to shelter with the corresponding id |
 | PUT shelters/id/animals/id | Allows user to update an Animal to shelter with the corresponding id |
 | DELETE shelters/id/animals/id  | Allows user to explore baser instincts by deleting an animal from a corresponding shelter |
-|---|---|
+| GET /shelters?name= | Allows user to search for Shelters by name |
 
 
 ### Technologies Used
