@@ -4,5 +4,12 @@ class Shelter < ApplicationRecord
   validates :location, presence: true
   scope :name_search, -> (name_search_parameter) { where("name like ?", "%#{name_search_parameter}%")}
   scope :location_search, -> (location_search_parameter) { where("location like ?", "%#{location_search_parameter}%")}
-  scope :breed_search, -> (breed_search_parameter) {where("breed like ?", "%#{breed_search_paramter}%")}
+  # scope :random_shelter, -> (random_parameter) {where("shelter like ?", "%#{random_paramter}%")}
+  scope :random_shelter, -> (random_parameter) { order("RAND()", "%#{random_paramter}%").limit(1)}
+
+  def self.random_shelter
+    Shelter.order("RAND()").limit(1)
+  end
+
+
 end

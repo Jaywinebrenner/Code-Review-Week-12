@@ -12,8 +12,8 @@ class SheltersController < ApplicationController
       json_response(@shelters)
 
     elsif
-      breed = params[:breed]
-      @shelters = Shelter.breed_search(breed)
+      random_shelter = params[:name]
+      @shelters = Shelter.random_shelter(random_shelter)
       json_response(@shelters)
 
     else

@@ -1,19 +1,5 @@
 class AnimalsController < ApplicationController
 
-  # def index
-  #   if
-  #     author = params[:author]
-  #     @animals = Animal.author_search(author)
-  #       json_response(@animals)
-  #   elsif
-  #     content = params[:content]
-  #     @animals = Animal.content_search(content)
-  #     json_response(@animals)
-  #     @animals = Animal.all
-  #      json_response(@animals)
-  #   end
-  # end
-
   def index
     if
       breed = params[:breed]
