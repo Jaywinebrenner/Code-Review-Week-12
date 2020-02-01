@@ -42,8 +42,8 @@ This will create a user which will authorize to use the API in the next steps.
 | PUT shelters/id/animals/id | Allows user to update an Animal to shelter with the corresponding id |
 | DELETE shelters/id/animals/id  | Allows user to explore baser instincts by deleting an animal from a corresponding shelter |
 | GET /shelters?name= | Allows user to search for Shelters by name |
-| Get /shelters?location= | Allows user to search for shelters by location |
-
+| GET /shelters?location= | Allows user to search for shelters by location |
+| GET /randoms | Allows user to get one random Shelter |
 ### Technologies Used
 
  - Ruby

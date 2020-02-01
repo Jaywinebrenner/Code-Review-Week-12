@@ -1,14 +1,11 @@
 class AnimalsController < ApplicationController
 
   def index
-    if
-      breed = params[:breed]
-      @shelters = Shelter.breed_search(breed)
-      json_response(@shelters)
-    else
+
       @shelter = Shelter.find(params[:shelter_id])
+      @animals = @shelter.animals
       json_response(@animal)
-    end
+
   end
 
   def show
