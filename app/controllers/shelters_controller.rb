@@ -1,14 +1,21 @@
 class SheltersController < ApplicationController
 
-
   def index
     if
+      location = params[:location]
+      @shelters = Shelter.location_search(location)
+      json_response(@shelters)
+
+    elsif
       name = params[:name]
       @shelters = Shelter.name_search(name)
       json_response(@shelters)
+
     elsif
-      location = params[:locations]
-      @shelters = Shelter.location_search(location)
+      breed = params[:breed]
+      @shelters = Shelter.breed_search(breed)
+      json_response(@shelters)
+
     else
       @shelters = Shelter.all
       json_response(@shelters)

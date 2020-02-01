@@ -9,19 +9,20 @@ class AnimalsController < ApplicationController
   #     content = params[:content]
   #     @animals = Animal.content_search(content)
   #     json_response(@animals)
-  #   elsif
-  #     created_at = params[:created_at]
-  #     @animals = Animal.specific_time_search(created_at)
-  #     json_response(@animals)
-  #   else
   #     @animals = Animal.all
   #      json_response(@animals)
   #   end
   # end
 
   def index
-    @shelter = Shelter.find(params[:shelter_id])
-    json_response(@animal)
+    if
+      breed = params[:breed]
+      @shelters = Shelter.breed_search(breed)
+      json_response(@shelters)
+    else
+      @shelter = Shelter.find(params[:shelter_id])
+      json_response(@animal)
+    end
   end
 
   def show
